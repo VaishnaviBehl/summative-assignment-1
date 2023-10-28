@@ -9,13 +9,14 @@ output: html_document
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+### Question 1
 
-# Function Documentation 
+## Function Documentation 
 
 This document loads the Iris dataset and explains how to use the `calculate_mean_sepal_length` function with the dataset.
 
 
-#Function Overview 
+## Function Overview 
 
 The `calculate_mean_sepal_length` function calculates the mean sepal length for a specific species of iris flowers in the "iris" dataset.
 
@@ -23,9 +24,10 @@ The `calculate_mean_sepal_length` function calculates the mean sepal length for 
 # Load the "iris" dataset
 data(iris)
 
-# Initial function to calculate mean sepal length for all species
+# Initial function to calculate mean sepal length for a specific species 
 calculate_mean_sepal_length <- function(species) {
-  return(mean(iris$Sepal.Length))
+  subset_data <- iris[iris$Species == species, ]
+  return(mean(subset_data$Sepal.Length))
 }
 
 ```
@@ -45,4 +47,8 @@ calculate_mean_sepal_length(species = "virginica")
 
 ```
 
+## Appendix: All code in this assignment
 
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} 
+
+```
